@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+      
+#submit{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 1%; 
+    margin-bottom: 1%;
+    margin-top: 2%;
+    cursor: pointer;
+}
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.mainbox{
+    position: relative;
+}
+.popup{
+    position: absolute;
+    border: solid black 1px;
+    padding: 2%;
+    left: 40%;
+    top:30%;
+    display: none;
+    text-align: center;
+    
+}
+hr{
+    border: black solid 1px;
+}
+input{
+    cursor: pointer;
+}
+    </style>
+    <div class="mainbox">
+        <div style="text-align: center; margin-top: 10% ; border: solid black 2px;   margin-top: 0;">
+            <h1>Interactive Quiz</h1><hr>
+           <div >
+            <h2 >1. What is the capital of France?</h2>
+            <input type="radio" name="quiz1" value="A. Berlin">A. Berlin
+            <input type="radio" name="quiz1" id="right1"  value="B. Paris">B. Paris
+            <input type="radio" name="quiz1"  value="C. Rome">C.Rome
+           </div>
+           <div>
+            <h2>2. What is the capital of Japan?</h2>
+            <input type="radio" name="quiz2" id="right2" value="A. Tokyo">A. Tokyo
+            <input type="radio" name="quiz2" value="B. Seoul">B. Seoul
+            <input type="radio" name="quiz2"  value="C. Beijing">C. Beijing
+           </div>
+           <div>
+            <h2> 3. what is 1+1 = ?</h2>
+            <input type="radio" name="quiz3"  value="A.two">A. two
+            <input type="radio" name="quiz3" id="right3" value="B.2">B. 2
+            <input type="radio" name="quiz3" value="C.22">C. 22
+            
+           </div>
+        <button id="submit">Submit</button>
+        </div>
+    </div>
+
+    <div class="popup">
+        <h1>Interactive Quiz</h1>
+        <h2>Quiz Result</h2>
+        <p id="result"></p>
+        
+    </div>
+    <script>
+       var submit=document.getElementById("submit")
+       var result = document.getElementById("result")
+       var mainbox = document.querySelector(".mainbox")
+       var popup = document.querySelector(".popup")
+       submit.addEventListener("click",function(){
+        var score=0
+        if(document.getElementById("right1").checked){
+            score=score+1
+        }
+        if(document.getElementById("right2").checked){
+            score=score+1
+        }
+        if(document.getElementById("right3").checked){
+            score=score+1
+        }
+        result.textContent="your score is : " +score
+        mainbox.style.display="none"
+        popup.style.display="block"
+       }
+    ) 
+    </script>
+    <style>
+        @media screen and (max-width:600px) 
+        {
+            .popup{
+                position: relative;
+                left: 2%;
+                width: 90%;
+                margin-left: 10px;
+                top:150px
+            }
+            #submit{
+                padding: 10px;
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</body>
+</html>
